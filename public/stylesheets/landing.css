@@ -1,0 +1,84 @@
+#landing-header {
+	z-index: 1;
+	position: relative;
+	text-align: center;
+	padding-top: 40vh;
+	color: #fff;
+}
+
+#landing-header h1 {
+	color: #fff;
+}
+
+.slideshow {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.slideshow li {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-size: cover;
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	opacity: 0;
+	z-index: 0;
+	/* animation: imageAnimation 50s linear infinite; */
+	animation: imageAnimation 40s linear infinite;
+}
+
+.slideshow li:nth-child(1) {
+	background-image: url(../images/beach1.jpg);
+}
+.slideshow li:nth-child(2) {
+	background-image: url(../images/ocean.jpg);
+	/* animation-delay: 10s; */
+	animation-delay: 8s;
+}
+.slideshow li:nth-child(3) {
+	background-image: url(../images/car2.jpeg);
+	/* animation-delay: 20s; */
+	animation-delay: 16s;
+}
+.slideshow li:nth-child(4) {
+	background-image: url(../images/beach2.jpeg);
+	/* animation-delay: 30s; */
+	animation-delay: 24s;
+}
+.slideshow li:nth-child(5) {
+	background-image: url(../images/mountain3.jpg);
+	/* animation-delay: 40s; */
+	animation-delay: 32s;
+}
+
+@keyframes imageAnimation {
+	0% {
+		opacity: 0;
+		animation-timing-function: ease-in;
+	}
+	10% {
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	20% {
+		opacity: 1;
+	}
+	30% {
+		opacity: 0;
+	}
+}
+
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

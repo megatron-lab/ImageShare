@@ -1,0 +1,35 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+    <header class="jumbotron">
+        <div class="container" style="text-align: center;">
+            <!-- <h1><img src="/favicon_io/apple-touch-icon2.png" width="80px"> Welcome to ImageShare!</h1> -->
+            <% if(!currentUser){ %>
+                <h1><img src="/favicon_io/apple-touch-icon2.png" width="80px"> Welcome to ImageShare!</h1>
+            <% } else { %>
+                <h1><img src="/favicon_io/apple-touch-icon2.png" width="80px"> Welcome <%=currentUser.username%>!</h1>
+            <% } %>
+
+            <p>Share beautiful images with everyone</p>
+            <p>
+                <a class="btn btn-lg btn-info" href="/images/new">Add New Image</a>
+            </p>
+        </div>
+    </header>
+
+    <div class="row text-center" style="display: flex; flex-wrap: wrap;">
+        <% images.forEach(function(image){ %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= image.image %>">
+                    <div class="caption">
+                        <h4><%= image.name %></h4>
+                    </div>
+                    <p><a class="btn btn-primary" href="/images/<%= image._id %>">More Info</a></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+<%- include("../partials/footer") %>
+
